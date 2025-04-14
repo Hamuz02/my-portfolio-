@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="#">service</a></li>
+                    <li><a href="#">portfolio</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>UI/UX Designer</p>
+                <h1>Hi, I'm <span>Hamza k Ayub</span> <br>From Ethiopia</h1>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About me</h1>
+                    <p>Hi, I’m Hamuz Kedir, a passionate Software Engineer and web development enthusiast, currently in my third year at Adama Science and Technology University (ASTU). I thrive on solving complex problems, turning ideas into functional applications, and continuously learning to stay ahead in the ever-evolving tech world.<br>
+
+                        With a strong foundation in software engineering principles and a deep passion for creating interactive, user-friendly web applications, I aspire to make impactful contributions to the tech industry. Whether it’s coding elegant solutions, designing intuitive web interfaces, or collaborating on challenging projects, I’m driven by a commitment to excellence and creativity.<br>
+                        
+                        In my journey so far, I’ve explored various programming languages, tools, and frameworks that enable me to build efficient, user-centric solutions. I’m excited to grow my skills further and bring ideas to life through the power of code and web technologies.</p>
+                        <div class="tab-titles">
+                            <div class="tab-links active-link" onclick="opentab('skills')">Skills</div>
+                            <div class="tab-links" onclick="opentab('experience')">Experience</div>
+                            <div class="tab-links" onclick="opentab('education')">Education</div>
+                        </div>
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                                <li><span>Web Development</span><br>Web App Development</li>
+                                <li><span>App Development</span><br>Building Andriod/iOS apps</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="experience">
+                            <ul>
+                                <li><span>2023-current</span><br>UI/UX Design Training at ASTU</li>
+                                <li><span>2024-2025</span><br>UI/UX Design Excutive at ASTU</li>
+                                <li><span>2025</span><br>Internship at OICT solutions</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>2022</span><br>UI/UX Design Training at ET Institute</li>
+                                <li><span>2023</span><br>Start Bachlor at ASTU</li>
+                                <li><span>2024</span><br>Diploma from tech Insitute </li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+           for(tablink of tablinks) {
+            tablink.classList.remove("active-link");
+           }
+           for(tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-link");
+           }
+        }
+    </script>
+</body>
+</html>
