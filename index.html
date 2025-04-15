@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>personal portfolio website</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div id="header">
@@ -39,9 +40,9 @@
                         
                         In my journey so far, I’ve explored various programming languages, tools, and frameworks that enable me to build efficient, user-centric solutions. I’m excited to grow my skills further and bring ideas to life through the power of code and web technologies.</p>
                         <div class="tab-titles">
-                            <div class="tab-links active-link" onclick="opentab('skills')">Skills</div>
-                            <div class="tab-links" onclick="opentab('experience')">Experience</div>
-                            <div class="tab-links" onclick="opentab('education')">Education</div>
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
                         </div>
                         <div class="tab-contents active-tab" id="skills">
                             <ul>
@@ -68,16 +69,45 @@
             </div>
         </div>
     </div>
+
+   <!-- ---------------------Services-----------------------  -->
+    <div id="service">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Crafting visually appealing and user-friendly website layouts that prioritize functionality, aesthetics, and responsiveness to deliver an engaging user experience. Expertise in creating tailored designs that align with clients' branding and business goals.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fas fa-crop"></i>
+                    <h2>UI/UX Design</h2>
+                    <p>Designing user interfaces (UI) and crafting user experiences (UX) that prioritize usability, accessibility, and aesthetic appeal. Ensuring every interaction is meaningful and contributes to an effortless journey for the user.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fab fa-app-store"></i>
+                    <h2>APP Design</h2>
+                    <p>Developing intuitive and visually engaging mobile and desktop application interfaces, focusing on seamless functionality and user-centric layouts to ensure a smooth and efficient user experience..</p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
         function opentab(tabname){
            for(tablink of tablinks) {
-            tablink.classList.remove("active-link");
+               tablink.classList.remove("active-link");
            }
            for(tabcontent of tabcontents) {
-            tabcontent.classList.remove("active-link");
+               tabcontent.classList.remove("active-tab");
            }
+           event.currentTarget.classList.add("active-link");
+           document.getElementById(tabname).classList.add("active-tab");
         }
     </script>
 </body>
