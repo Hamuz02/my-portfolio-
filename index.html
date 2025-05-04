@@ -12,16 +12,18 @@
         <div class="container">
             <nav>
                 <img src="images/logo.png" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About me</a></li>
-                    <li><a href="#">service</a></li>
-                    <li><a href="#">portfolio</a></li>
-                    <li><a href="#">contact</a></li>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#service">service</a></li>
+                    <li><a href="#portfolio">portfolio</a></li>
+                    <li><a href="#contact">contact</a></li>
+                    <i class="fa-solid fa-rectangle-xmark" onclick="closemenu()"></i>
                 </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p>UI/UX Designer</p>
+                <p>Web Developer & Designer</p>
                 <h1>Hi, I'm <span>Hamza k Ayub</span> <br>From Ethiopia</h1>
             </div>
         </div>
@@ -53,16 +55,16 @@
                         </div>
                         <div class="tab-contents" id="experience">
                             <ul>
-                                <li><span>2023-current</span><br>UI/UX Design Training at ASTU</li>
-                                <li><span>2024-2025</span><br>UI/UX Design Excutive at ASTU</li>
-                                <li><span>2025</span><br>Internship at OICT solutions</li>
+                                <li><span>2024-current</span><br>Web Designer & Developer</li>
+                                <li><span>2025-present</span><br>Mobile App Developer</li>
+                                <li><span>2025 (summer)</span><br>Web Development Intern at OICT solutions</li>
                             </ul>
                         </div>
                         <div class="tab-contents" id="education">
                             <ul>
-                                <li><span>2022</span><br>UI/UX Design Training at ET Institute</li>
-                                <li><span>2023</span><br>Start Bachlor at ASTU</li>
-                                <li><span>2024</span><br>Diploma from tech Insitute </li>
+                                <li><span>2025</span><br>Completed UI/UX Design Training at Google UX Design Certificate (Coursera).</li>
+                                <li><span>2023</span><br>Enrolled in Bachelor of Science in Software Engineering at Adama Science and Technology University (ASTU).</li>
+                                <li><span>2024</span><br>Diploma in App Development from Udacity. </li>
                             </ul>
                         </div>
                 </div>
@@ -79,19 +81,18 @@
                     <i class="fas fa-code"></i>
                     <h2>Web Design</h2>
                     <p>Crafting visually appealing and user-friendly website layouts that prioritize functionality, aesthetics, and responsiveness to deliver an engaging user experience. Expertise in creating tailored designs that align with clients' branding and business goals.</p>
-                    <a href="#">Learn more</a>
                 </div>
                 <div>
                     <i class="fas fa-crop"></i>
                     <h2>UI/UX Design</h2>
                     <p>Designing user interfaces (UI) and crafting user experiences (UX) that prioritize usability, accessibility, and aesthetic appeal. Ensuring every interaction is meaningful and contributes to an effortless journey for the user.</p>
-                    <a href="#">Learn more</a>
+            
                 </div>
                 <div>
                     <i class="fab fa-app-store"></i>
                     <h2>APP Design</h2>
                     <p>Developing intuitive and visually engaging mobile and desktop application interfaces, focusing on seamless functionality and user-centric layouts to ensure a smooth and efficient user experience..</p>
-                    <a href="#">Learn more</a>
+                
                 </div>
             </div>
         </div>
@@ -141,12 +142,13 @@
                       </div>
                       
                 <div class="contact-right">
-                    <form >
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="your name" required>
-                        <input type="email" name="email" placeholder="your Email" required>
+                        <input type="email" name="Email" placeholder="your Email" required>
                         <textarea name="Message" row="6" placeholder="your Message"></textarea>
                         <button type="submit" class="btn2">Submitted</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
         </div>
@@ -167,6 +169,30 @@
            event.currentTarget.classList.add("active-link");
            document.getElementById(tabname).classList.add("active-tab");
         }
+        var sidemeu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemeu.style.right = "0";
+        }
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+        }
     </script>
+    <script>
+        const scriptURL = '<https://script.google.com/macros/s/AKfycbx048xZMd4ecaGjXJIJYAWugZGBak6rfIB7te5FCkkSTg2mkqnG4ZB9tzCbM57PaFFRnQ/exec>'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>{
+               msg.innerHTML = "Message sent successfully"
+               setTimeout(function(){
+                msg.innerHTML = ""
+               }, 6000) 
+               form.reset()
+            } )
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 </html>
